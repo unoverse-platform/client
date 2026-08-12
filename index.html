@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northwind Institute</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --ink: #14181d;
+        --muted: #626b76;
+        --line: #e3e7ec;
+        --bg: #ffffff;
+        --panel: #f6f8fa;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8ecf1; --muted: #98a2ae; --line: #232a32; --bg: #0e1216; --panel: #161c22; }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      header, main, footer { max-width: 60rem; margin: 0 auto; padding: 0 24px; }
+      header { display: flex; align-items: center; gap: 24px; height: 72px; border-bottom: 1px solid var(--line); }
+      .mark { font-weight: 650; letter-spacing: -0.01em; }
+      nav { margin-left: auto; display: flex; gap: 20px; color: var(--muted); font-size: 0.9rem; }
+      h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 56px 0 12px; }
+      .lede { color: var(--muted); max-width: 34rem; margin: 0 0 40px; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+      .card { border: 1px solid var(--line); border-radius: 12px; padding: 20px; background: var(--panel); }
+      .card h2 { font-size: 1rem; margin: 0 0 6px; }
+      .card p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+      .cta { margin: 40px 0 72px; }
+      button {
+        font: inherit;
+        padding: 0.6rem 1.1rem;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        background: none;
+        color: inherit;
+        cursor: pointer;
+      }
+      footer { border-top: 1px solid var(--line); padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 0.85rem; }
+    </style>
+  </head>
+  <body>
+    <!--
+      A FAKE PROJECT. Northwind Institute is not real, and none of this markup is yours to
+      keep: it stands in for the website you already have, so you can see the assistant on
+      a page rather than on a blank one.
+
+      What matters is at the bottom. Delete everything above it.
+    -->
+    <header>
+      <span class="mark">Northwind Institute</span>
+      <nav><span>Courses</span><span>Admissions</span><span>Fees</span><span>About</span></nav>
+    </header>
+
+    <main>
+      <h1>Professional qualifications, taught by people who examine them.</h1>
+      <p class="lede">
+        Part-time and full-time routes in accountancy, law and data. Start in January,
+        April or September.
+      </p>
+
+      <div class="grid">
+        <div class="card"><h2>Accountancy</h2><p>ACCA, CIMA and ICAEW routes, with exam-focused revision built in.</p></div>
+        <div class="card"><h2>Law</h2><p>SQE preparation and the conversion course, taught alongside practice.</p></div>
+        <div class="card"><h2>Data</h2><p>Analytics and engineering, from foundation to postgraduate.</p></div>
+      </div>
+
+      <p class="cta">
+        <!-- Driving the assistant from your own interface. `unoverse.open()` is available
+             as soon as the embed has loaded, which is long before anyone can click. -->
+        <button onclick="unoverse.open()">Ask about a course</button>
+      </p>
+    </main>
+
+    <footer>A fake site, for seeing the assistant in place. Northwind Institute does not exist.</footer>
+
+    <!--
+      ─────────────────────────────────────────────────────────────────────────────
+      THIS IS THE PART THAT IS YOURS TO COPY.
+      ─────────────────────────────────────────────────────────────────────────────
+
+      THE LOGIN, and it is YOURS. The embed never signs anyone in: your site already has a
+      session, and the embed forwards whatever token you hand it (src/host.js). Declared
+      BEFORE the embed tag, because that tag is async and a script after it may run second.
+
+      Delete this line if your app is public. Visitors then get a persisted guest identity
+      and no login at all.
+    -->
+    <script type="module" src="/src/host.js"></script>
+
+    <!--
+      THE ASSISTANT. One tag, served by your own universe, nothing configured: it works out
+      where the universe is from its own src, and takes the app from `data-app`.
+
+      Optional attributes for the launcher:
+        data-icon="/logo.svg"     your own mark, from your own domain
+        data-label="Ask us"
+        data-color="#0b5"
+        data-side="left"          which side the drawer opens from
+        data-chrome="none"        draw no button at all; you call unoverse.open()
+    -->
+    <script async src="%UNOVERSE_URL%/embed.js" data-app="%UNOVERSE_APP%"></script>
+  </body>
+</html>
