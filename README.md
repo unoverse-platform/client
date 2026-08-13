@@ -68,6 +68,7 @@ Only `data-app` is required.
 | `data-color` | `#111827` | The launcher's background colour, any CSS colour. |
 | `data-side` | `right` | `left` or `right`: which edge the drawer opens from, and which corner the launcher sits in. |
 | `data-chrome` | drawn | `none` draws no launcher at all. You draw your own and call `unoverse.open()`. |
+| `data-login-url` | none | Your sign-in page. When a secured app meets a visitor with no session, the drawer shows a Sign in button pointing here. `{url}` in it becomes the current page, encoded, so your login can bounce back. |
 | `data-surface` | `unoverse_assistant` | Names this host in analytics. Leave it alone unless you have been told otherwise. |
 | `data-server` | the script's own origin | Only if you re-host `embed.js` on your own CDN, which breaks the derivation. Almost nobody needs this. |
 
@@ -94,6 +95,17 @@ Publish a getter **before** the embed tag:
 
 `src/host.js` is a working OIDC example. Replace the body of `token()` with however your
 site gets its token, or delete the file if your app is public.
+
+When the visitor has no session and the app needs one, the drawer offers your own login:
+
+```html
+<script async src="…/embed.js" data-app="your-org/your-app"
+        data-login-url="/login?return={url}"></script>
+```
+
+`{url}` becomes the page they were on, encoded. No attribute means the drawer says
+"Please sign in to continue" and stops, which is honest but a dead end — name your
+login page.
 
 **Your universe must trust your identity provider.** It verifies tokens against one
 configured issuer and audience, so those must match the ones your site signs in with.
