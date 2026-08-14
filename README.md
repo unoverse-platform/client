@@ -144,11 +144,12 @@ banner.
 
 | | Lives | For |
 |---|---|---|
-| Conversation | `unoverse:conversation` | 30 minutes since last use. A visitor moving between your pages keeps their thread; tomorrow they start fresh. |
 | Guest | `unoverse:guestId` | Indefinitely, so a returning anonymous visitor is recognised. |
 
-The 30 minutes matches how long your universe keeps the agent's memory of a thread.
-Holding it longer would return a visitor to a conversation nothing remembers.
+The conversation itself is never stored: it lives exactly as long as the page that opened
+it. A reload starts a fresh conversation, and the agent still recognises the visitor
+through the guest id and user memory. A stored thread would outlive the screen — the agent
+would remember cards the page never rendered.
 
 ## Going live
 
