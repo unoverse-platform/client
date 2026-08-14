@@ -66,6 +66,7 @@ Only `data-app` is required.
 | `data-icon` | a neutral chat glyph | A URL for the launcher icon. Serve it from your own domain. |
 | `data-label` | `"Open the assistant"` | The launcher's accessible name, and its tooltip. |
 | `data-color` | `#111827` | The launcher's background colour, any CSS colour. |
+| `data-panel` | `#fff` | The drawer's background: what shows while the app loads, and behind it. Match your app's theme so the open never flashes white. |
 | `data-side` | `right` | `left` or `right`: which edge the drawer opens from, and which corner the launcher sits in. |
 | `data-chrome` | drawn | `none` draws no launcher at all. You draw your own and call `unoverse.open()`. |
 | `data-login-url` | none | Your sign-in page. When a secured app meets a visitor with no session, the drawer shows a Sign in button pointing here. `{url}` in it becomes the current page, encoded, so your login can bounce back. |
