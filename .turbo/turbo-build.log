@@ -1,0 +1,13 @@
+
+> unoverse-client@0.1.0 build
+> vite build
+
+vite v6.4.1 building for production...
+<script src="%UNOVERSE_URL%/embed.js"> in "/index.html" can't be bundled without type="module" attribute
+transforming...
+✓ 6 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                5.36 kB │ gzip: 2.21 kB
+dist/assets/index-BLkp22NA.js  1.22 kB │ gzip: 0.67 kB
+✓ built in 706ms
